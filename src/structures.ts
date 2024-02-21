@@ -1,8 +1,8 @@
 export enum Command {
-  Log,
-  Warn,
-  Debug,
-  Error,
+  Log = 'Log',
+  Warn = 'Warn',
+  Debug = 'Debug',
+  Error = 'Error',
 }
 
 export interface Message {
