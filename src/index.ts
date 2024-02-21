@@ -1,3 +1,2 @@
-console.log('hello world');
-
-// przechwytywanie wiadomosci, zapisyawnie ich w array, nasluchownnie w event listenr
+export * from './core.ts';
+export * from './structures.ts';
