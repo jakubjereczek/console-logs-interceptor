@@ -7,6 +7,11 @@ export enum Command {
 
 export interface Message {
   command: Command;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  payload: any;
+  payload: {
+    // timestamp
+    ts: string;
+    // message
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    msg: any;
+  };
 }
