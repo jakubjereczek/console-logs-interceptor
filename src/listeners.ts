@@ -5,7 +5,9 @@ type EventPayload = {
 };
 
 type EventMap = {
-  [Key in `on${Command | 'All'}`]: EventPayload;
+  // For all other types besides onMessageUpdate, an array with a single element will be returned.
+  // For the type onMessageUpdate, the current array containing all the latest messages (taking into account the maxCache value) will be returned.
+  [Key in `on${Command | 'All' | 'MessageUpdate'}`]: EventPayload[];
 };
 type EventName = keyof EventMap & string;
 type EventListener = (params: EventPayload) => void;
