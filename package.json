@@ -1,8 +1,16 @@
 {
-  "name": "intercept-console-messages",
+  "name": "console-logs-interceptor",
   "private": true,
   "version": "0.1.0",
   "type": "module",
+  "main": "./dist/intercept-console-messages.umd.cjs",
+  "module": "./dist/intercept-console-messages.js",
+  "exports": {
+    ".": {
+      "import": "./dist/intercept-console-messages.js",
+      "require": "./dist/intercept-console-messages.umd.cjs"
+    }
+  },
   "scripts": {
     "dev": "vite",
     "play": "nodemon -e ts -w . -x tsx src/playground.ts",
@@ -28,6 +36,7 @@
     "tsx": "^4.7.1",
     "typescript": "^5.2.2",
     "vite": "^5.1.4",
+    "vite-plugin-dts": "^3.7.3",
     "vite-plugin-eslint": "^1.8.1"
   }
 }
