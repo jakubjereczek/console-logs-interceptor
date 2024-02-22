@@ -1,6 +1,7 @@
+import { captureConsole, restoreConsole } from './_capture';
 import { State, clearState, updateState } from './_state';
 
-type RegisterOptions = Partial<Pick<State, 'commands' | 'maxCache'>>;
+type RegisterOptions = Partial<Pick<State, 'maxCache'>>;
 
 /**
  * Initialize the capture of logging messages with the indicated initial configuration.
@@ -8,12 +9,12 @@ type RegisterOptions = Partial<Pick<State, 'commands' | 'maxCache'>>;
  * @param registerOptions The initial options.
  * @returns void
  */
-export function register({ commands, maxCache }: RegisterOptions) {
+export function register({ maxCache }: RegisterOptions = {}) {
   updateState({
     registered: true,
-    commands: commands || [],
     maxCache,
   });
+  captureConsole();
 }
 
 /**
@@ -23,4 +24,5 @@ export function register({ commands, maxCache }: RegisterOptions) {
  */
 export function unregister() {
   clearState();
+  restoreConsole();
 }

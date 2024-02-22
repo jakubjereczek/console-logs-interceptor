@@ -10,5 +10,11 @@ export default defineConfig({
       entry: resolve(__dirname, 'src/index.ts'),
       name: 'lib',
     },
+    build: {
+      manifest: true,
+      rollupOptions: {
+        external: ['src/playground.ts'],
+      },
+    },
   },
 });

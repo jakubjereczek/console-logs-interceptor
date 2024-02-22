@@ -1,14 +1,10 @@
-import { Command, Message } from './structures';
+import { Message } from './structures';
 
 export interface State {
   /**
    * Indicates whether logging interception is enabled.
    */
   registered: boolean;
-  /**
-   * Specifies the supported types of intercepted commands.
-   */
-  commands: Command[];
   /**
    * Stores an array of captured log messages.
    */
@@ -22,7 +18,6 @@ export interface State {
 
 export const initialState: State = {
   registered: false,
-  commands: [Command.Log, Command.Warn, Command.Debug, Command.Error],
   messages: [],
   maxCache: undefined,
 };
