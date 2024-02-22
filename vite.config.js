@@ -1,10 +1,16 @@
 import { resolve } from 'path';
 import { defineConfig } from 'vite';
 import eslint from 'vite-plugin-eslint';
+import dts from 'vite-plugin-dts';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [eslint()],
+  plugins: [
+    eslint(),
+    dts({
+      exclude: ['**/__tests__/*'],
+    }),
+  ],
   build: {
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
@@ -18,3 +24,5 @@ export default defineConfig({
     },
   },
 });
+
+// console debug
